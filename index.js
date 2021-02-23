@@ -1,9 +1,10 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
-const generateMarkdown = require("./utils/generateMarkdown");
-
-const writeFileAsync = util.promisify(fs.writeFile);
+ const empHtml = require("./empHtml.js");
+var Prompt = require("prompt-expand");
+// const empHtmlInfo = require("./empHtml");
+// const writeFileAsync = util.promisify(fs.writeFile);
 
 
 const questions = [];
@@ -24,44 +25,52 @@ function writeToFile(fileName, data) {
 }
 
 // This prompts for read me input 
-function init() {
-  console.log("Welcome to The Employee Portal ");
+ function intake() {
+  console.log("Welcome to Employee Management Portal ");
   console.log("Lets Create your Profile ");
-  inquirer.prompt([
+   inquirer.prompt([
     {
       type: "input",
-      name: "projectname",
-      message: "What would you like to name your Project?"
+      message: "What is your Name?",
+      name: "empname",
     },
     {
       type: "input",
-      message: "Table of Contents",
-      name: "contents",
+      message: "What is your Employee ID?",
+      name: "empId",
 
     },
     {
       type: "input",
-      message: "Description",
+      message: "What is your Email?",
       name: "description",
     },
 
     {
       type: "input",
-      message: "Installation",
-      name: "installation",
+      message: "What is your Office Number?",
+      name: "office",
     },
-
-    {
-      type: "input",
-      message: "Usasge",
-      name: "usage",
-    },
-
     {
       type: "list",
-      message: "License",
-      name: "license",
-      choices: ['MIT', 'APACHE','BSD'], 
+      message: "What would like to add to your Team? ",
+      name: "addon",
+      choices: ['Engineer', 'Intern','Finish building my Team'], 
+    },
+    {
+      type: "expand",
+      name: "addon",
+      message: "Who would you like to add to your team?",
+      choices: [
+        {
+          key: 'a',
+          value: "Engineer",
+        },
+        {
+          key: 'c',
+          value: "Intern",
+        },
+      ],
     },
     {
       type: "input",
@@ -92,9 +101,9 @@ function init() {
      ])
   // gathers the data to create the README after user input 
     .then(function (data) {
-      const read = generateMarkdown (data);
+      let html = empHtmlHtml (data);
      
-      return writeFileAsync("index.html", html);
+      return writeFileAsync("employeeinfo/empHtmlInfo.html", html);
      
        })
        .then(function() {
@@ -107,5 +116,5 @@ function init() {
 
  
 }
-    init() 
+    intake() 
     

@@ -1,0 +1,28 @@
+{
+  "name": "EmployeeProfile",
+  "version": "1.0.0",
+  "description": "This Application allows the Employers to receive general information about their management staff as well as provide them options to build out a team of either Engineers or Interns.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Omlawrence24/EmployeeProfile.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Omlawrence24/EmployeeProfile/issues"
+  },
+  "homepage": "https://github.com/Omlawrence24/EmployeeProfile#readme",
+  "dependencies": {
+    "expand": "^0.5.0",
+    "inquirer": "^7.3.3",
+    "prompt": "^1.1.0",
+    "prompt-expand": "^1.0.1",
+    "save": "^2.4.0",
+    "util": "^0.12.3"
+  }
+}
