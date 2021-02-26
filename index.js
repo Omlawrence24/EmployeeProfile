@@ -1,19 +1,20 @@
+const empHtml = require("./templates/empHtml.js");
+const internHtml = require("./templates/internHtml.js");
+const engineerHtml = require("./templates/engineerHtml.js");
 const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
- const empHtml = require("./empHtml.js");
-var Prompt = require("prompt-expand");
+//var Prompt = require("prompt-expand");
 // const empHtmlInfo = require("./empHtml");
-// const writeFileAsync = util.promisify(fs.writeFile);
+//const writeFileAsync = util.promisify(fs.writeFile);
 
+//every time we create a new employee, push an Employee object to our employees array
+const employee = [];
+let html = ''
 
-const questions = [];
-
-// const writeFileAsync = promisify(fs.writeFile);
-
-// Creates a function to write README file
-function writeToFile(fileName, data) {
-  fs.writeFile(filename, JSON.stringify(data, null, '\t'), function (err) {
+// Creates a function to write HTML file
+function writeToFile(filename) {
+  fs.writeFile(filename, html, function (err) {
 
     if (err) {
       return console.log(err);
@@ -23,16 +24,17 @@ function writeToFile(fileName, data) {
 
   });
 }
+//msmconst writeFileAsync = promisify(fs.writeFile);
 
-// This prompts for read me input 
- function intake() {
-  console.log("Welcome to Employee Management Portal ");
-  console.log("Lets Create your Profile ");
-   inquirer.prompt([
+// This prompts for employee input 
+function intake() {
+  console.log("Welcome to Employee Management Portal");
+  console.log("Lets Create your Manager Profile ");
+  return inquirer.prompt([
     {
       type: "input",
       message: "What is your Name?",
-      name: "empname",
+      name: "ename",
     },
     {
       type: "input",
@@ -45,76 +47,119 @@ function writeToFile(fileName, data) {
       message: "What is your Email?",
       name: "description",
     },
-
     {
       type: "input",
       message: "What is your Office Number?",
       name: "office",
     },
+
+  ])
+    // gathers the data to create the html after user input 
+    .then(function (managerData) {
+      console.log(managerData);
+      html += internHtml(managerData)
+      //use our managerData to create a new Manager() and push that to our employees array
+      //
+      return addNewEmployee();
+    })
+    
+    .catch(function (err) {
+      console.log(err);
+    });
+
+  // 
+
+}
+
+intake()
+
+//our function that will prompt the user to either...
+//1. add an engineer
+//2. add an intern
+//3. finish building the team
+function addNewEmployee() {
+  return inquirer.prompt([
     {
       type: "list",
       message: "What would like to add to your Team? ",
       name: "addon",
-      choices: ['Engineer', 'Intern','Finish building my Team'], 
-    },
-    {
-      type: "expand",
-      name: "addon",
-      message: "Who would you like to add to your team?",
-      choices: [
-        {
-          key: 'a',
-          value: "Engineer",
-        },
-        {
-          key: 'c',
-          value: "Intern",
-        },
-      ],
-    },
-    {
-      type: "input",
-      message: "Contributing",
-      name: "contributing",
-    },
-    {
-      type: "input",
-      message: "Tests",
-      name: "tests",
-    },
-    
-    {
-      type: "input",
-      message: "Developer Info",
-      name: "questions",
-    },
-    {
-      type: "input",
-      message: "What is your GitHub Name",
-      name: "githubName",
-    },
-    {
-      type: "input",
-      message: "What is your GitHub Email?",
-      name: "githubEmail",
-    },
-     ])
-  // gathers the data to create the README after user input 
-    .then(function (data) {
-      let html = empHtmlHtml (data);
-     
-      return writeFileAsync("employeeinfo/empHtmlInfo.html", html);
-     
-       })
-       .then(function() {
-     console.log("Successfully Created Html")
-       })
-       .catch(function(err) {
-         console.log(err);
-       });
-         
+      choices: ['Engineer', 'Intern', 'Finish building my Team']
+    }
 
- 
+  ])
+    .then(response => {
+      console.log(response.addon);
+      
+      if (response.addon == 'Engineer') {
+        return promptEngineerInfo();
+      } else if (response.addon == 'Intern') {
+        return promptInternInfo();
+      } else if (response.addon == 'Finish building my Team') {
+        return writeToFile("./dist/index.html");
+      }
+    })
 }
-    intake() 
-    
+
+
+//our function that will prompt the user to add an intern's school
+function promptInternInfo() {
+  return inquirer.prompt([
+    //we also need to add questions for name, email, id
+    {
+      type: "input",
+      message: "What is your Intern's Name?",
+      name: "ename",
+    },
+    {
+      type: "input",
+      message: "What is your Intern's Employee ID?",
+      name: "empId",
+    },
+    {
+      type: "input",
+      message: "What is your Intern's Email?",
+      name: "description",
+    },
+    {
+      type: "input",
+      message: "Where did your Intern go to school?",
+      name: "school",
+    },
+  ]).then(internInfo => {
+    html += internHtml(internInfo)
+    console.log(internInfo);
+    addNewEmployee()
+  });
+}
+//our function that will prompt the user to add an engineer's github username
+function promptEngineerInfo() {
+  return inquirer.prompt([
+    {
+      type: "input",
+      message: "What is your Engineer's Name?",
+      name: "ename",
+    },
+    {
+      type: "input",
+      message: "What is your Engineer's Employee ID?",
+      name: "empId",
+
+    },
+    {
+      type: "input",
+      message: "What is your Engineer's Email?",
+      name: "description",
+    },
+    {
+      type: "input",
+      message: "What is your github Username?",
+      name: "school"
+    }
+  ]).then(engineerInfo => { 
+    html += engineerHtml(engineerInfo)
+
+    console.log(engineerInfo);
+    //1. use engineerInfo to create a new Engineer() and push it to our employees array
+    addNewEmployee();
+  })
+}

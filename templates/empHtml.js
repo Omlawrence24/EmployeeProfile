@@ -1,3 +1,8 @@
+
+
+
+// goal: pass an array of employees to our function and loop through array
+
 function empHtmlInfo (data) {
     return `
 <!DOCTYPE html>
@@ -12,26 +17,21 @@ function empHtmlInfo (data) {
   
     <div class="card text-center ">
         <div class="card-header">
-          <h1>${empname}</h1>
-          <h2>${empId}</h2>
+    
+          <h1>${managerData.ename}</h1>
+          <h2>${managerData.empId}</h2>
         </div>
         <div class="bg-dark card-body">
           <h3 class="card-title">Employee Info </h3>
-          <h5 class="card-title">${email} </h5>
-          <h5 class="card-title">${office} </h5>
-          <h5 class="card-title">${addon} </h5>
-          <p class="card-text">${choiceName} </p>
-          <p class="card-text">${choiceId} </p>
-          <p class="card-text">${choiceEmail} </p>
-          <p class="card-text">${choiceSchool} </p>
-          <p class="card-text">${choiceGithub} </p>
-        </div>
-        <div class="card-footer text-muted">
+          <h5 class="card-title">${managerData.email} </h5>
+          <h5 class="card-title">${managerData.office} </h5>
           
-          </div>
+        </div>
+       
         </div>
       
 </body>
 </html>`
 };
+
 module.exports = empHtmlInfo;
