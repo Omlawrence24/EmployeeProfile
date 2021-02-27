@@ -1,11 +1,12 @@
-describe("employee", () => {
-    describe("info", () => {
-      it("should reverse a given string", () => {
-        
+const Employee = require("../lib/Employee")
+
+describe("Employee", () => {
   
-        const result = new Algo().reverse(str);
+      it("should return new team members instance of (Julie)", () => {
+        const julie = "julie";
+        const employee =  new Employee(julie);
   
-        expect(result).toEqual(reversed);
+        expect(employee.name).toEqual(julie);
       });
-    });
-  
+    
+  })

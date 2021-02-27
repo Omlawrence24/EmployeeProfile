@@ -11,17 +11,42 @@ const util = require("util");
 //every time we create a new employee, push an Employee object to our employees array
 const employee = [];
 let html = ''
+let openHtml = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+</head>
+<body>`
+let closeHtml = ` 
+<h3> This completes my team with the members needed. </h3>
+</div> 
+</div>     
+</body>
+</html>`
 
 // Creates a function to write HTML file
 function writeToFile(filename) {
-  fs.writeFile(filename, html, function (err) {
-
+  fs.writeFile(filename, openHtml += html += closeHtml, function (err) {
+      
     if (err) {
       return console.log(err);
     }
 
     console.log("Success!");
-
+    
   });
 }
 //msmconst writeFileAsync = promisify(fs.writeFile);
@@ -45,7 +70,7 @@ function intake() {
     {
       type: "input",
       message: "What is your Email?",
-      name: "description",
+      name: "email",
     },
     {
       type: "input",
@@ -57,9 +82,8 @@ function intake() {
     // gathers the data to create the html after user input 
     .then(function (managerData) {
       console.log(managerData);
-      html += internHtml(managerData)
-      //use our managerData to create a new Manager() and push that to our employees array
-      //
+      html += empHtml(managerData)
+      
       return addNewEmployee();
     })
     
@@ -118,7 +142,7 @@ function promptInternInfo() {
     {
       type: "input",
       message: "What is your Intern's Email?",
-      name: "description",
+      name: "email",
     },
     {
       type: "input",
@@ -148,12 +172,12 @@ function promptEngineerInfo() {
     {
       type: "input",
       message: "What is your Engineer's Email?",
-      name: "description",
+      name: "email",
     },
     {
       type: "input",
       message: "What is your github Username?",
-      name: "school"
+      name: "github"
     }
   ]).then(engineerInfo => { 
     html += engineerHtml(engineerInfo)
@@ -163,3 +187,5 @@ function promptEngineerInfo() {
     addNewEmployee();
   })
 }
+
+module.exports = {intake, addNewEmployee, promptInternInfo, promptEngineerInfo}
