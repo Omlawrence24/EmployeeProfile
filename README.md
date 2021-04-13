@@ -8,7 +8,7 @@
  * [Installation](#installation)
  * [Usage](#usage)
  * [License](#license)
- * [Contributing](#contributing)
+ * [Technology](#technology)
  * [Test](#tests)
  * [Developer Info](#DeveloperInfo)
 
@@ -21,12 +21,12 @@
   ## License
   MIT
 
-  ## Contributing
-  node modules, package.json
+  ## Technologies
+  node modules, package.json, Inquirer, Express, Terminal
 
   ## Developer Info
-  Obedia Lawrence Omlawrence24@gmail.com
-  
+  Obedia Lawrence
+  Omlawrence24@gmail.com
   [Omlawrence24](https://github.com/Omlawrence24) 
   omlawrence24@gmail.com
 
