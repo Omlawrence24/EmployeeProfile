@@ -23,7 +23,7 @@
   ## Technology
   node modules, package.json, Inquirer, Express, Terminal
 
-  ## Developer Info
+  ## Developer
   Obedia Lawrence
   Omlawrence24@gmail.com
   [Omlawrence24](https://github.com/Omlawrence24) 
