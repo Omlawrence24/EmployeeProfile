@@ -9,7 +9,7 @@
  * [Usage](#usage)
  * [License](#license)
  * [Technology](#technology)
- * [Developer Info](#Developer Info)
+ * [Developer](#Developer)
 
   ## Installation
   You will need to install NPM, Inquirer, fs, and any Framework of your choice
