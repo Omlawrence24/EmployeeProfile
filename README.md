@@ -24,6 +24,7 @@
   node modules, package.json, Inquirer, Express, VS Code, JavaScript
 
   ## Developer
+  
   Obedia Lawrence
   
   Omlawrence24@gmail.com
