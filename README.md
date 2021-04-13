@@ -21,7 +21,7 @@
   MIT
 
   ## Technology
-  node modules, package.json, Inquirer, Express, Terminal
+  node modules, package.json, Inquirer, Express, VS Code, JavaScript
 
   ## Developer
   Obedia Lawrence
