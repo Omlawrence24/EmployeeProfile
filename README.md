@@ -9,8 +9,7 @@
  * [Usage](#usage)
  * [License](#license)
  * [Technology](#technology)
- * [Test](#tests)
- * [Developer Info](#DeveloperInfo)
+ * [Developer Info](#Developer Info)
 
   ## Installation
   You will need to install NPM, Inquirer, fs, and any Framework of your choice
@@ -21,7 +20,7 @@
   ## License
   MIT
 
-  ## Technologies
+  ## Technology
   node modules, package.json, Inquirer, Express, Terminal
 
   ## Developer Info
