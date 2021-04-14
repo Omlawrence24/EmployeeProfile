@@ -4,9 +4,7 @@ const engineerHtml = require("./templates/engineerHtml.js");
 const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
-//var Prompt = require("prompt-expand");
-// const empHtmlInfo = require("./empHtml");
-//const writeFileAsync = util.promisify(fs.writeFile);
+
 
 //every time we create a new employee, push an Employee object to our employees array
 const employee = [];
