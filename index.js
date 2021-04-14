@@ -172,7 +172,7 @@ function promptEngineerInfo() {
       message: "What is your Engineer's Email?",
       name: "email",
     },
-    {
+    { 
       type: "input",
       message: "What is your github Username?",
       name: "github"
