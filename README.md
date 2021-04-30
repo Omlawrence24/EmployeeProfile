@@ -2,7 +2,8 @@
   ### MIT
   
   ## Description
-  This Site allows the  employer to create a profile that will enable his management team to build out a team based on team needs.
+  This Site allows the employer to create a profile that will enable his management team to build out a team based on team needs. Must
+  initiate via Node.Js 
  
   ## Table of Contents
   
