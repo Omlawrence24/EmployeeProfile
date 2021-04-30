@@ -26,8 +26,12 @@
   node modules, package.json, Inquirer, Express, VS Code, JavaScript
 
   ## Developer
+  
   Walk through video of how this site generates Employee Profile via Node.js
    https://drive.google.com/file/d/1zfpysDigb-VXlJWQXnCa_6MuLBNZBlNL/view
+  
+  Public Page 
+  before and After
   
   Obedia Lawrence
   
