@@ -3,7 +3,7 @@
   
   ## Description
   This Site allows the employer to create a profile that will enable his management team to build out a team based on team needs. Must
-  initiate via Node.Js 
+  initiate via Node.Js prompts
  
   ## Table of Contents
   
