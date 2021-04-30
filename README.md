@@ -31,8 +31,9 @@
    https://drive.google.com/file/d/1zfpysDigb-VXlJWQXnCa_6MuLBNZBlNL/view
   
   Public Page 
-  before and After
-  
+(once employee info is generated)
+  ![image](https://user-images.githubusercontent.com/73300219/116737949-d4dc7f00-a9bf-11eb-9f64-c5c144f5ed16.png)
+
   Obedia Lawrence
   
   Omlawrence24@gmail.com
